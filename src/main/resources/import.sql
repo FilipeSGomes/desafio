@@ -1,4 +1,4 @@
---INSERT INTO perfil (nome) values('Administrador');
+INSERT INTO usuario (nome) values('Filipe');
 --
 --INSERT INTO perfil_permissoes (perfil_id, permissoes) values(1, 'ADMIN');
 --
