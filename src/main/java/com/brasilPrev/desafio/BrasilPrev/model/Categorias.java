@@ -5,12 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.hateoas.ResourceSupport;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 @Entity
 public class Categorias extends ResourceSupport{
 
@@ -21,9 +20,25 @@ public class Categorias extends ResourceSupport{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigo;
 
-	@NotBlank
 	private String nome;
 
+//	@OneToMany(fetch=FetchType.EAGER)
+//    private Produtos produto;
+	
+	@Override
+	public String toString() {
+		return "Categorias [codigo=" + codigo + ", nome=" + nome + "]";
+	}
+
+	public Categorias(long codigo, String nome) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+	}
+
+	public Categorias() {
+	}
+	
 	public long getCodigo() {
 		return codigo;
 	}

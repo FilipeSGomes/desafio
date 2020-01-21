@@ -21,8 +21,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 	        return dataSource;
 	    }
 		
-
-
 		@Bean
 		public JpaVendorAdapter jpaVendorAdapter(){
 			HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();

@@ -1,4 +1,4 @@
-INSERT INTO usuario (nome) values('Filipe');
+INSERT INTO usuario (nome, senha) values('Filipe', '123456');
 --
 --INSERT INTO perfil_permissoes (perfil_id, permissoes) values(1, 'ADMIN');
 --
@@ -30,5 +30,13 @@ INSERT INTO usuario (nome) values('Filipe');
 --
 --
 --INSERT INTO imovel(ativo, rua, idbairro, idcliente) VALUES('1','imovel do capeta', 3, 2);
-INSERT INTO categorias (nome) values ('teste');
+INSERT INTO categorias (nome) values ('Aves'); --1
+INSERT INTO categorias (nome) values ('Bovino'); --2
+INSERT INTO categorias (nome) values ('Silvestre'); --3
+INSERT INTO categorias (nome) values ('Alimenticio'); --4
+INSERT INTO categorias (nome) values ('Congelados'); --5
+INSERT INTO categorias (nome) values ('Limpeza'); --6
+INSERT INTO categorias (nome) values ('Enlatados'); --7
 
+
+INSERT INTO produtos (nome, categorias_codigo) values ('Sabonete', 7);

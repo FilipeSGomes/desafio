@@ -1,6 +1,4 @@
 package com.brasilPrev.desafio.BrasilPrev;
-import static springfox.documentation.builders.PathSelectors.regex;
-
 import java.util.ArrayList;
 
 import org.springframework.context.annotation.Bean;
@@ -21,8 +19,8 @@ public class SwaggerConfig {
 	    public Docket productApi() {
 	        return new Docket(DocumentationType.SWAGGER_2)
 	                .select()
-	                .apis(RequestHandlerSelectors.basePackage("com.brasilPrev"))
-	                .paths(regex("/prev.*"))
+	                .apis(RequestHandlerSelectors.basePackage("com.brasilPrev.desafio.BrasilPrev"))
+//	                .paths(regex("/prev.*"))
 	                .build()
 	                .apiInfo(metaInfo());
 	    }
@@ -31,14 +29,14 @@ public class SwaggerConfig {
 
 	        ApiInfo apiInfo = new ApiInfo(
 	                "Spring Boot Swagger Desafio Brasil Prev",
-	                "Spring Boot Swagger Desafio Brasil Prev",
+	                "Spring Boot Swagger Desafio Brasil tes",
 	                "1.0",
 	                "Terms of Service",
 	                new Contact("Filipe Gomes", "https://github.com/FilipeSGomes/desafio_brasilPrev",
 	                        "filipesan7@gmail.com"),
 	                "Apache License Version 2.0",
 	                "https://www.apache.org/licesen.html", 
-	                new ArrayList<VendorExtension>()
+	                new ArrayList<VendorExtension>() 
 	        );
 
 	        return apiInfo;
