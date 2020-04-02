@@ -1,4 +1,4 @@
-package com.brasilPrev.desafio.BrasilPrev.config;
+package com.brasilPrev.desafio.BrasilPrev.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.brasilPrev.desafio.BrasilPrev.config.ComercialUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -23,14 +24,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
 			.antMatchers(HttpMethod.GET, "/prev").permitAll()
 			.antMatchers(HttpMethod.POST, "/prev/login").permitAll()
-			.anyRequest().authenticated()
-			.and()
+			.anyRequest().authenticated();
+//			.and()
 			
 			// filtra requisições de login
-			.addFilterBefore(new JWTLoginFilter("/prev/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+//			.addFilterBefore(new JWTLoginFilter("/prev/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class);
 			
 			// filtra outras requisições para verificar a presença do JWT no header
-			.addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+//			.addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override

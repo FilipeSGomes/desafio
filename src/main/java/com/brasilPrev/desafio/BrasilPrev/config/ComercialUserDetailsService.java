@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
-import com.brasilPrev.desafio.BrasilPrev.Repository.UsuarioRepository;
 import com.brasilPrev.desafio.BrasilPrev.model.Usuario;
+import com.brasilPrev.desafio.BrasilPrev.repository.UsuarioRepository;
 
 
 @Repository

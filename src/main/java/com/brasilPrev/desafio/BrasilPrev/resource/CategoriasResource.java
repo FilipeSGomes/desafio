@@ -1,4 +1,4 @@
-package com.brasilPrev.desafio.BrasilPrev.Resource;
+package com.brasilPrev.desafio.BrasilPrev.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,26 +6,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brasilPrev.desafio.BrasilPrev.Repository.ProdutosRepository;
-import com.brasilPrev.desafio.BrasilPrev.model.Produtos;
+import com.brasilPrev.desafio.BrasilPrev.model.Categorias;
+import com.brasilPrev.desafio.BrasilPrev.repository.CategoriasRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Api(value = "API REST Produto")
 @RestController
-@RequestMapping("/prev/produto")
-public class ProdutoResource {
+@RequestMapping("/prev/categoria")
+public class CategoriasResource {
+
 
 	@Autowired
-	ProdutosRepository repository;
+	CategoriasRepository repository;
 	
-	@ApiOperation(value="retorna todos os produtos cadastrados")
+	@ApiOperation(value="retorna todas categorias cadastrados")
 	@GetMapping(produces = "application/json") 
-	public @ResponseBody Iterable<Produtos> findProdutos(){
-		Iterable<Produtos> produtos = repository.findAll(); 
-		return produtos;
+	public @ResponseBody Iterable<Categorias> findProdutos(){
+		Iterable<Categorias> categorias = repository.findAll(); 
+		return categorias;
 	}
-	
+
 	
 }

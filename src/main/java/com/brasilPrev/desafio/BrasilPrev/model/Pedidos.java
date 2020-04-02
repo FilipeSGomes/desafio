@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.hateoas.ResourceSupport;
 
-import com.brasilPrev.desafio.BrasilPrev.Const.StatusEnum;
+import com.brasilPrev.desafio.BrasilPrev.constant.StatusEnum;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

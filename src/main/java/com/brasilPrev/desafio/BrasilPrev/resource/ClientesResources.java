@@ -1,4 +1,4 @@
-package com.brasilPrev.desafio.BrasilPrev.Resource;
+package com.brasilPrev.desafio.BrasilPrev.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brasilPrev.desafio.BrasilPrev.Repository.ClientesRepository;
 import com.brasilPrev.desafio.BrasilPrev.model.Clientes;
+import com.brasilPrev.desafio.BrasilPrev.repository.ClientesRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

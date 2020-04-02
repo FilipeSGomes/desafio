@@ -1,4 +1,4 @@
-package com.brasilPrev.desafio.BrasilPrev.Const;
+package com.brasilPrev.desafio.BrasilPrev.constant;
 
 public enum StatusEnum {
 
@@ -13,15 +13,6 @@ public enum StatusEnum {
 	private StatusEnum(String nome, int index) {
 		this.nome  = nome;
 		this.index = index;
-	}
-
-	
-	public static StatusEnum getEnum(int index){
-		
-		for(StatusEnum p : StatusEnum.values()){
-			if(p.index == index)return p;
-		}
-		throw new IllegalArgumentException("Valor do enum StatusEnum não encontrado.");
 	}
 	
 	public String getNome() {
