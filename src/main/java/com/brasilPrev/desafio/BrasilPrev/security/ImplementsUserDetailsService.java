@@ -1,4 +1,4 @@
-package com.brasilPrev.desafio.BrasilPrev.config;
+package com.brasilPrev.desafio.BrasilPrev.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,20 +11,20 @@ import com.brasilPrev.desafio.BrasilPrev.repository.UsuarioRepository;
 
 
 @Repository
-public class ComercialUserDetailsService implements UserDetailsService{
+public class ImplementsUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private UsuarioRepository ur;
+	private UsuarioRepository usuarioRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String nome) throws UsernameNotFoundException {
-		Usuario user = ur.findByNome(nome);
-		
+		Usuario user = usuarioRepository.findByNome(nome);
+		System.out.println(user.getPassword());
+		System.out.println(user.getUsername());
 	    if (user == null) {
 	      throw new UsernameNotFoundException("Usuário não encontrado!");
 	    }
 		return user;
 	}
-	
 
 }

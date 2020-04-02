@@ -15,7 +15,6 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "API REST Produto")
 @RestController
 @RequestMapping("/prev/cliente")
-
 public class ClientesResources {
 
 	@Autowired
@@ -26,7 +25,5 @@ public class ClientesResources {
 	public @ResponseBody Iterable<Clientes> findProdutos() {
 		Iterable<Clientes> clientes = repository.findAll();
 		return clientes;
-
 	}
-
 }

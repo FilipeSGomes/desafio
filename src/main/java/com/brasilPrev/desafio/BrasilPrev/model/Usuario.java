@@ -8,7 +8,10 @@ import javax.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Usuario implements UserDetails{
 
 	/**
@@ -20,7 +23,7 @@ public class Usuario implements UserDetails{
 	private String nome;
 	
 	private String senha;
-
+	
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub

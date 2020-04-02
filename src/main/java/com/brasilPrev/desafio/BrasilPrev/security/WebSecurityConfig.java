@@ -8,37 +8,36 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.brasilPrev.desafio.BrasilPrev.config.ComercialUserDetailsService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
+import org.springframework.util.AntPathMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private ComercialUserDetailsService uds;
+	private ImplementsUserDetailsService userDetailsService;
 	
 	@Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeRequests()
-			.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
-			.antMatchers(HttpMethod.GET, "/prev").permitAll()
-			.antMatchers(HttpMethod.POST, "/prev/login").permitAll()
-			.anyRequest().authenticated();
-//			.and()
+			.antMatchers(HttpMethod.GET, "/").permitAll()
+			.antMatchers(HttpMethod.PUT, "/").permitAll()
+			.antMatchers(HttpMethod.DELETE, "/").permitAll()
+			.antMatchers(HttpMethod.POST, "/").permitAll()
+			.anyRequest().authenticated()
+			.and().formLogin().permitAll()
+			.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 			
-			// filtra requisições de login
-//			.addFilterBefore(new JWTLoginFilter("/prev/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class);
-			
-			// filtra outras requisições para verificar a presença do JWT no header
-//			.addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.userDetailsService(uds)
-			.passwordEncoder(new BCryptPasswordEncoder());
+		auth.inMemoryAuthentication() 
+		.withUser("Test").password("1234").roles("ADMIN");
+		auth.userDetailsService(userDetailsService)
+		.passwordEncoder(new BCryptPasswordEncoder());
 	}
 
 }

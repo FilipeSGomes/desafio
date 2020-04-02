@@ -1,4 +1,4 @@
-INSERT INTO usuario (nome, senha) values('Filipe', '123456');
+INSERT INTO usuario (nome, senha) values('Filipe', '1234');
 --
 --INSERT INTO perfil_permissoes (perfil_id, permissoes) values(1, 'ADMIN');
 --
@@ -39,4 +39,4 @@ INSERT INTO categorias (nome) values ('Limpeza'); --6
 INSERT INTO categorias (nome) values ('Enlatados'); --7
 
 
-INSERT INTO produtos (nome, categorias_codigo) values ('Sabonete', 7);
+--INSERT INTO produtos (nome, categorias_codigo) values ('Sabonete', 7);
