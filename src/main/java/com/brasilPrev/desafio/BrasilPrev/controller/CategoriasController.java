@@ -1,4 +1,4 @@
-package com.brasilPrev.desafio.BrasilPrev.resource;
+package com.brasilPrev.desafio.BrasilPrev.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "API REST Produto")
 @RestController
 @RequestMapping("/prev/categoria")
-public class CategoriasResource {
+public class CategoriasController {
 
 
 	@Autowired
