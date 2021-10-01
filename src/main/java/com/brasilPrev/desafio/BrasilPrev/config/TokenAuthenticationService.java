@@ -50,9 +50,6 @@ public class TokenAuthenticationService {
 
     public static Authentication getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);
-        if (token != null) {
-            return getByToken(token);
-        }
-        return null;
+        return token != null ? getByToken(token) : null;
     }
 }
